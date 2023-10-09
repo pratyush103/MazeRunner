@@ -1,7 +1,7 @@
 # MazeRunner
 DFS, BFS, Dijkstra's
 
-#Attributions and refernce
+##Attributions and refernce
 
 @btschneid :https://github.com/btschneid
 
