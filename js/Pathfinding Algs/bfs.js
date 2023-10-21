@@ -55,7 +55,6 @@ async function bfsTime(delayTime) {
     }
   }
 
-  // Color the path from end to start
   let node = endNode;
   while (node != startTile && !resetOn) {
     if (node !== endNode) {
