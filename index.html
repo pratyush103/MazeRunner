@@ -8,14 +8,14 @@
 
 <body class="path">
     <div class="grid-container"></div>
-    <scipt>
+    <script>
         const gridContainer = document.querySelector('.grid-container');
         const width = gridContainer.offsetWidth;
         const height = width * 15 / 37;
 
-        gridContainer.style.height='${height}px';
+        gridContainer.style.height = '${height}px';
 
-    </scipt>
+    </script>
     <div class="bottom-container">
         <div class="container">
             <div class="algorithm-container">
@@ -77,7 +77,81 @@
         </div>
     </div>
 
+    <div class="info" id="info">
+        <div class="page1">
+            <div class="info-header">
+                <div class="info-title"> How to Use</div>
+                <button data-close-button class="close-button">&times;</button>
 
+            </div>
+            <div class="info-body">
+                <div class="info-body">
+                    <div class="info-body-text">
+                        <div class="start-info">
+                            <div class="info-sub-text">
+                                TO set the starting point, click on the Start Tile button then click on any Tile
+
+                            </div>
+                            <button class="tilebut1"> Start Tile</button>
+                        </div>
+                        <div class="end-info">
+                            <div class="end-info">
+                                To set the ending point, click on the end Tile button then click on any Tile
+
+                            </div>
+                            <button class="tilebut2"> End Tile</button>
+
+                        </div>
+                        <div class="wall-info">
+                            <div class="info-sub-text">
+                                To set the walls, click on the Wall Tile button and then click or drag on any Tile
+
+                            </div>
+                            <button class="tilebut3"> Wall Tile</button>
+                        </div>
+                    </div>
+                    <div class="right-side-container">
+                        <div class="part1-gif-container">
+                            <img class="part1-gif" src="videos/part1.gif" alt="animated GIF">
+
+                        </div>
+                        <div class="info-footer-page2">
+                            <button class="alg-buttons" onclick="togglepages()">Advanced Features --> </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page2" id="advanced-info" style="display: none;">
+                <div class="info-header">
+                    <div class="info-title">Advanced Features</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="info-body">
+                    <div class="info-body-text-page2">
+                        <div class="drag-info">
+                            <div class="info-sub-text">
+                                After running an algorithm, you can visualize it from various angles by dragging the
+                                start or end
+                                positions
+                            </div>
+                        </div>
+                        <div class="maze-info">
+                            <div class="info-sub-text">
+                                Click the Create Maze button to create a random maze using the Depth First Search
+                                algorithm
+                            </div>
+                            <button class="alg-buttons">Create Maze</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script src="js/index.js"></script>
 
 </body>
 
