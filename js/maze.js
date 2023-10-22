@@ -91,7 +91,7 @@ async function dfsMaze() {
   selectedColor = "";
 
   let delayTime = 1;
-  const randStartIndex = Math.floor(Math.random() * openTiles.length);
+  const randStartIndex = Math.floor(Math.random() * openTiles.length); //selects a random starting index
   let s = openTiles[randStartIndex].number;
   const graph = buildMazeGraph();
   const visited = new Set([s]);

@@ -2,6 +2,7 @@
     --grid-size: 37;
   }
   
+  
   body.path {
     font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
     background-color: rgb(239, 239, 239);
@@ -21,6 +22,18 @@
     gap: 1px;
     
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
   
   .tile {
     display: inline-block;
@@ -33,7 +46,7 @@
   
   .algorithm-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     padding: 10px;
   }
@@ -43,6 +56,8 @@
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
   }
+
+  
   
   .alg-buttons {
     appearance: none;
@@ -104,7 +119,93 @@
     display: grid;
     grid-gap: 20px;
   }
+
+  .explain-alg-container{
+    padding: 10px;
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  .button-container {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
   
+  /* Tooltip text */
+  .button-container .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    
+    translate: 0px -15px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .button-container:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .button-container .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+
+  .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  cursor: help;
+}
+.tooltip:hover{
+  font-weight: bold;
+  color: blue;
+}
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    font-weight: normal !important; 
+    width: 550px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    padding: 5px 5px;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    translate: 20px -120px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
   .tile-button-container {
     padding: 5px;
     display: grid;
@@ -406,7 +507,7 @@
   }
   
   #overlay.active {
-    opacity: 1;
+    opacity: 0;
     pointer-events: all;
   }
   

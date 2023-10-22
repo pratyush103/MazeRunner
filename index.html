@@ -13,28 +13,27 @@
         const width = gridContainer.offsetWidth;
         const height = width * 15 / 37;
 
-        gridContainer.style.height = '${height}px';
+        gridContainer.style.height = `${height}px`;
 
     </script>
     <div class="bottom-container">
         <div class="container">
             <div class="algorithm-container">
                 <div class="button-container">
+                    
                     <button class="alg-buttons" onclick="bfs()"> BFS</button>
                     <button class="alg-buttons" onclick="dfs()">DFS</button>
+                    <span class="tooltiptext">BFS & DFS (O(V + E))</span>
 
 
                 </div>
                 <div class="button-container">
+                    <span class="tooltiptext">Dijkstra (O(V^2))</span>
                     <button class="alg-buttons" onclick="dijkstra('euclidean')">Dijkstra Euclidean</button>
                     <button class="alg-buttons" onclick="dijkstra('manhattan')">Dijkstra Manhattan</button>
                 </div>
                 <div class="button-container">
-                    <button class="alg-buttons" onclick="astar('euclidean')">A* Euclidean</button>
-                    <button class="alg-buttons" onclick="astar('manhattan')">A*Manhattan</button>
-
-                </div>
-                <div class="button-container">
+                    <span class="tooltiptext">Greedy (O(V^2))</span>
                     <button class="alg-buttons" onclick="greedyBFS('euclidean')">Greedy BFS Euclidean</button>
                     <button class="alg-buttons" onclick="greedyBFS('manhattan')"> Greedy BFS Manhattan</button>
 
@@ -51,6 +50,68 @@
                     <button data-info-target="#info" class="alg-buttons">How to use</button>
 
                 </div>
+
+            </div>
+
+            <div class="explain-alg-container">
+                <h2>Explaination</h2>
+                <div class="tooltip">BFS
+                    <span class="tooltiptext" style="translate: 20px -110px">
+                        
+                        <b>Breadth-First Search (BFS):</b><br>
+
+                        <b>Working:</b> BFS explores the maze layer by layer, starting from the initial tile. It systematically explores all possible paths until it reaches the goal tile. BFS guarantees finding the shortest path. It makes use of Queue and keeps track of the tiles it has visited.  the "enqueue" operation occurs when you identify an unvisited neighbor during the exploration of nodes, and you add it to the queue with an updated distance. The "dequeue" operation happens when you retrieve the next node from the queue for further exploration. <br>
+                        <b>Time Complexity:</b> In a maze with orthogonal connections (no diagonal), BFS typically has a time complexity of O(V + E), where V is the number of vertices (cells) and E is the number of edges (connections).
+                    </span>
+                  </div>
+                  <div class="tooltip" >DFS
+                    <span class="tooltiptext" style="translate: 20px -90px">
+                        <b>Depth-First Search (DFS):</b><br>
+
+                        <b>Working:</b>  DFS explores the maze by recursively choosing one path until it reaches a dead end and then backtracking. It may not guarantee finding the shortest path.A stack is used in DFS to keep track of the nodes on the current path and backtrack when necessary. This allows DFS to explore a path as deeply as possible before backtracking to explore other paths. <br> 
+                        <b>Time Complexity:</b> In a maze with orthogonal connections, DFS has an average time complexity of O(V + E). In the worst case, it can reach O(V^2) when the entire maze is explored.
+                    </span>
+                  </div>
+                  <div class="tooltip">Dijkstra's
+                    <span class="tooltiptext">
+                        <b>Dijkstra's Algorithm (with Euclidean or Manhattan Distance):</b><br>
+
+                        <b>Working:</b> Dijkstra's algorithm explores the maze by prioritizing nodes based on their distance from the start tile. It ensures finding the shortest path. By using a priority queue, Dijkstra's algorithm efficiently explores the graph, focusing on nodes with the smallest tentative distances first. This ensures that the algorithm always selects the node with the shortest known distance at each step, ultimately leading to the discovery of the shortest paths from the source to all other nodes in the graph. If finding the exact shortest path is crucial, Dijkstra's algorithm or BFS is the more appropriate choice. <br>
+                        <b>Time Complexity:</b> In a maze with orthogonal connections, Dijkstra's algorithm has a time complexity of O(V<sup>2</sup>) due to the square root calculations involved in distance comparisons. It may explore more nodes than other algorithms.
+                    </span>
+                  </div>
+                  <div class="tooltip">Greedy BFS
+                    <span class="tooltiptext">
+                        <b>Greedy Best-First Search (with Euclidean or Manhattan Distance):</b><br>
+
+                        <b>Working:</b> Greedy BFS explores the maze by prioritizing nodes based on heuristic estimates (Euclidean or Manhattan distance). It aims to reach the goal quickly but does not guarantee finding the shortest path.The priority queue ensures that nodes are explored in a greedy manner, prioritizing those that appear to be closest to the goal based on the chosen heuristic. Greedy BFS may not guarantee finding the absolute shortest path but tends to explore paths that appear efficient based on the heuristic, making it suitable for heuristic-guided search in various applications, including pathfinding and maze solving. <br>
+                        <b>Time Complexity:</b> In a maze with orthogonal connections, Greedy BFS has a time complexity of O(V^2) because of the heuristic-based exploration.
+                    </span>
+                  </div>
+
+                  <div class="tooltip">Euclidean Distance
+                    <span class="tooltiptext">
+                        <b>Euclidean Distance:</b><br>
+                        
+                        The Euclidean distance, often referred to as the "straight-line" distance, calculates the shortest distance between two points in a straight line, as if you could travel directly from one point to the other. <br>
+                        It is based on the Pythagorean theorem and can be defined as the square root of the sum of the squares of the differences between corresponding coordinates. In a two-dimensional space, the Euclidean distance between points (x1, y1) and (x2, y2) is given by: <br>
+                        Euclidean Distance = <b>√((x2 - x1)^2 + (y2 - y1)^2)</b><br>
+                        Euclidean distance is often used in scenarios where diagonal movement is allowed and is suitable for measuring true geometric distance.
+
+                    </span>
+                  </div>
+                  <div class="tooltip">Manhattan Distance
+                    <span class="tooltiptext">
+                        <b>Manhattan Distance:</b><br>
+
+                        The Manhattan distance, measures the distance between two points by summing the absolute differences in their coordinates, as if you were navigating city streets on a grid. <br>
+                        In a two-dimensional space, the Manhattan distance between points (x1, y1) and (x2, y2) is given by: <br>
+                        Manhattan Distance = <b>|x2 - x1| + |y2 - y1|</b><br>
+                        Manhattan distance is often used when diagonal movement is not allowed, and navigation is constrained to moving horizontally and vertically along grid lines. It is particularly suitable for grid-based pathfinding in maze-like environments.
+
+                    </span>
+                  </div>
+
 
             </div>
 
@@ -78,77 +139,85 @@
     </div>
 
     <div class="info" id="info">
-        <div class="page1">
-            <div class="info-header">
-                <div class="info-title"> How to Use</div>
-                <button data-close-button class="close-button">&times;</button>
-
-            </div>
-            <div class="info-body">
-                <div class="info-body">
-                    <div class="info-body-text">
-                        <div class="start-info">
-                            <div class="info-sub-text">
-                                TO set the starting point, click on the Start Tile button then click on any Tile
-
-                            </div>
-                            <button class="tilebut1"> Start Tile</button>
-                        </div>
-                        <div class="end-info">
-                            <div class="end-info">
-                                To set the ending point, click on the end Tile button then click on any Tile
-
-                            </div>
-                            <button class="tilebut2"> End Tile</button>
-
-                        </div>
-                        <div class="wall-info">
-                            <div class="info-sub-text">
-                                To set the walls, click on the Wall Tile button and then click or drag on any Tile
-
-                            </div>
-                            <button class="tilebut3"> Wall Tile</button>
-                        </div>
-                    </div>
-                    <div class="right-side-container">
-                        <div class="part1-gif-container">
-                            <img class="part1-gif" src="videos/part1.gif" alt="animated GIF">
-
-                        </div>
-                        <div class="info-footer-page2">
-                            <button class="alg-buttons" onclick="togglepages()"> Advanced Features --> </button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page2" id="advanced-info" style="display: none;">
-                <div class="info-header">
-                    <div class="info-title">Advanced Features</div>
-                    <button data-close-button class="close-button">&times;</button>
-                </div>
-                <div class="info-body">
-                    <div class="info-body-text-page2">
-                        <div class="drag-info">
-                            <div class="info-sub-text">
-                                After running an algorithm, you can visualize it from various angles by dragging the
-                                start or end
-                                positions
-                            </div>
-                        </div>
-                        <div class="maze-info">
-                            <div class="info-sub-text">
-                                Click the Create Maze button to create a random maze using the Depth First Search
-                                algorithm
-                            </div>
-                            <button class="alg-buttons">Create Maze</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="page1">
+			<div class="info-header">
+				<div class="info-title">How to Use</div>
+				<button data-close-button class="close-button">&times;</button>
+			</div>
+			<div class="info-body">
+				<div class="info-body-text">
+					<div class="start-info">
+						<div class="info-sub-text">
+							To set the starting point, click on the Start Tile button and then click on any tile
+						</div>
+						<button class="tilebut1">Start Tile</button>
+					</div>
+					<div class="end-info">
+						<div class="info-sub-text">
+							To set the ending point, click on the End Tile button and then click on any tile
+						</div>
+						<button class="tilebut2">End Tile</button>
+					</div>
+					<div class="wall-info">
+						<div class="info-sub-text">
+							To set the walls, click on the Wall Tile button and then click or drag on any tile
+						</div>
+						<button class="tilebut3">Wall Tile</button>
+					</div>
+					<div class="start-alg-info">
+						Click any of the algorithms to visualize how they work
+					</div>
+				</div>
+				<div class="right-side-container">
+					<div class="part1-gif-container">
+						<img class="part1-gif" src="videos/part1.gif" alt="animated GIF">
+					</div>
+					<div class="info-footer-page2">
+						<button class="alg-buttons" onclick="togglePages()">Advanced Features --></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page2" id="advanced-info" style="display: none;">
+			<div class="info-header">
+				<div class="info-title">Advanced Features</div>
+				<button data-close-button class="close-button">&times;</button>
+			</div>
+			<div class="info-body">
+				<div class="info-body-text-page2">
+					<div class="drag-info">
+						<div class="info-sub-text">
+							After running an algorithm, you can visualize it from various angles by dragging the start or end positions
+						</div>
+					</div>
+					<div class="maze-info">
+						<div class="info-sub-text">
+							Click the Create Maze button to create a random maze using the Depth First Search algorithm
+						</div>
+						<button class="alg-buttons">Create Maze</button>
+					</div>
+					<div class="random-info">
+						<div class="info-sub-text">
+							Click or drag the Random Tilemap Slider to set a random tilemap with a lower or higher ratio of walls
+						</div>
+						<div class="input-container">
+							<div class="text-slider">
+								<label for="mySlider">Random Tilemap</label>
+							</div>
+							<div class="slider-container">
+								<input class="range-style" type="range" min="0.1" max="0.25" step="0.01" value="0.175" id="mySlider">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right-side-container">
+					<img class="part2-gif" src="videos/part2.gif" alt="animated GIF">
+				</div>
+			</div>
+			<div class="info-footer-page1">
+				<button class="alg-buttons" onclick="resetPages()"><-- How to Use</button>
+			</div>
+		</div>
     <div id="overlay"></div>
 
     <script src="js/index.js"></script>

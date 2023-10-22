@@ -487,6 +487,7 @@ const delay = (time) => {
   
   async function bfsTime(delayTime) {
     await delay(50);
+    //if not placed then do not start
     selectedColor = '';
     if (!checkToStart()) {
       return;
