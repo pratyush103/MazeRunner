@@ -28,12 +28,12 @@
 
                 </div>
                 <div class="button-container">
-                    <span class="tooltiptext">Dijkstra (O(V^2))</span>
+                    <span class="tooltiptext">Dijkstra (O(V<sup>2</sup>))</span>
                     <button class="alg-buttons" onclick="dijkstra('euclidean')">Dijkstra Euclidean</button>
                     <button class="alg-buttons" onclick="dijkstra('manhattan')">Dijkstra Manhattan</button>
                 </div>
                 <div class="button-container">
-                    <span class="tooltiptext">Greedy (O(V^2))</span>
+                    <span class="tooltiptext">Greedy (O(V<sup>2</sup>))</span>
                     <button class="alg-buttons" onclick="greedyBFS('euclidean')">Greedy BFS Euclidean</button>
                     <button class="alg-buttons" onclick="greedyBFS('manhattan')"> Greedy BFS Manhattan</button>
 
@@ -73,7 +73,7 @@
                     </span>
                   </div>
                   <div class="tooltip">Dijkstra's
-                    <span class="tooltiptext">
+                    <span class="tooltiptext" >
                         <b>Dijkstra's Algorithm (with Euclidean or Manhattan Distance):</b><br>
 
                         <b>Working:</b> Dijkstra's algorithm explores the maze by prioritizing nodes based on their distance from the start tile. It ensures finding the shortest path. By using a priority queue, Dijkstra's algorithm efficiently explores the graph, focusing on nodes with the smallest tentative distances first. This ensures that the algorithm always selects the node with the shortest known distance at each step, ultimately leading to the discovery of the shortest paths from the source to all other nodes in the graph. If finding the exact shortest path is crucial, Dijkstra's algorithm or BFS is the more appropriate choice. <br>

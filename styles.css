@@ -135,7 +135,7 @@ body {
   /* Tooltip text */
   .button-container .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 150px;
     background-color: black;
     color: #fff;
     text-align: center;
