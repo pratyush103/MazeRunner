@@ -3,9 +3,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Grid Size
-const gridSizeX = 37;
-const gridSizeY = 15;
-let tileNumber = gridSizeX * gridSizeY;
+const gridSizeX = 37;//colums
+const gridSizeY = 15;//rows
+let tileNumber = gridSizeX * gridSizeY;//totaltile number calculated
 let tiles = [];
 let editMode = true;
 let resetOn = false;

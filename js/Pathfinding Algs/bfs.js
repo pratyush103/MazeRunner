@@ -1,6 +1,6 @@
 const bfs = () => {
   pathFindingDone = false;
-  currentAlg = 0;
+  currentAlg = 0;//sets bsf as the current algo
   bfsTime(30);
 };
 
